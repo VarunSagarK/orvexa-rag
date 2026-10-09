@@ -101,6 +101,32 @@ watch → learn → repeat. That loop is how a project grows from one building t
 
 ---
 
+## Agent scorecard
+
+What each agent has done so far, and how useful it has been. Updated after every section.
+
+| Agent | Runs | Verdicts (pass / changes) | Must-fix found | Fixed | False alarms | Escaped |
+|---|---|---|---|---|---|---|
+| qa-tester | 0 | – | – | – | – | – |
+| frontend-designer | 0 | – | – | – | – | – |
+| code-reviewer | 0 | – | – | – | – | – |
+| rag-reviewer | 0 | – | – | – | – | – |
+| security-reviewer | 0 | – | – | – | – | – |
+| engineering-manager | 0 | – | – | – | – | – |
+| ceo-reviewer | 0 | – | – | – | – | – |
+| release-manager | 0 | – | – | – | – | – |
+
+**How to read it**
+- **Must-fix found / Fixed**: real problems the agent caught, and how many we fixed.
+- **False alarms**: findings that turned out not to be problems. Too many means the agent's
+  checklist needs tightening.
+- **Escaped**: bugs found *later* (by another agent, a test, a human, or a user) that this agent
+  should have caught. **This is the real success measure.** An agent that approves everything
+  has a 100% "pass rate" and is useless; an agent with zero escapes is doing its job.
+- **Catch rate** = must-fix found ÷ (must-fix found + escaped), shown once there's enough data.
+
+---
+
 ## Section log
 
 | Date | Section | Stage(s) covered |
