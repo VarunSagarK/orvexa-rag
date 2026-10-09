@@ -13,14 +13,45 @@ generation-layer decision with that in mind.
 
 ## How we work
 
-- Anything beyond a small fix: write the goal, the plan in plain English, the files you'll touch,
-  and 3 checks that will prove it works. Wait for "go".
-- After building, run each check for real and report pass/fail with the output. A check you didn't run stays unticked.
-- One small piece per step, one commit per piece.
-- Stop and ask before: a new package, a schema change, anything touching personal data,
-  a production deploy, or a legal/privacy claim.
-- Run the `security-reviewer` agent (`.claude/agents/security-reviewer.md`) on every change that
-  touches auth, uploads, RLS, storage, or the RAG pipeline.
+The user is learning the whole product lifecycle through this project. Explain in plain,
+kid-friendly language, and avoid jargon unless it's explained.
+
+### Every section starts and ends with the journey map
+- **Before** a section: show the relevant branch of the tree in `docs/journey.md` with
+  "📍 You are here" and one sentence on what this stage is and why it matters.
+- **After** a section: update `docs/journey.md` (statuses + section log) and show what changed
+  (⬜ → 🔵 → ✅) and what comes next.
+
+### Plan → build → test → review
+1. **Plan**: anything beyond a small fix needs the goal, the plan in plain English, the files
+   you'll touch, 3 checks that will prove it works, and which agents will review. Run
+   `engineering-manager` on the plan (and `ceo-reviewer` for a new feature or phase). Wait for "go".
+2. **Build** on a `feature/*` or `fix/*` branch, one small piece per commit.
+3. **Test**: run `qa-tester`. Run each check for real and report pass/fail with the output.
+   A check you didn't run stays unticked.
+4. **Review** (agents in `.claude/agents/`):
+
+   | Agent | Runs when |
+   |---|---|
+   | `code-reviewer` | Every PR |
+   | `security-reviewer` | Auth, uploads, RLS, storage, env/config, personal data, or the RAG pipeline |
+   | `rag-reviewer` | RAG services, the system prompt, model settings, or the eval set |
+   | `frontend-designer` | Builds every screen; reviews any UI change |
+   | `engineering-manager` | Every plan, and every PR before merging into develop |
+   | `ceo-reviewer` | New feature or phase, and before the first release to real residents |
+   | `release-manager` | Every merge from develop into main |
+
+5. Fix every **must fix** finding before merging. Record any lasting decision in `docs/decisions.md`.
+6. Stop and ask before: a new package, a schema change, anything touching personal data,
+   a production deploy, or a legal/privacy claim.
+7. Before any commit or push, check the change against the security rules below, and say what
+   you checked.
+
+### Memory: where things are remembered
+- **CLAUDE.md** (this file): rules for every session and every collaborator.
+- **`docs/decisions.md`**: what we decided and why, so nothing is re-explained or re-argued.
+- **`docs/journey.md`**: where the project is in its lifecycle.
+- **Claude's private memory**: the user's personal preferences across sessions.
 
 ---
 
@@ -219,9 +250,20 @@ Secret scanning: install gitleaks (`brew install gitleaks`) and enable the repo 
 
 ---
 
-## Git conventions
+## Git conventions — branch flow
 
-- Branch naming: `feature/short-description`, `fix/short-description`
-- Commit messages: present tense, imperative — "Add login route" not "Added login route"
-- Never commit directly to `main`. Always use a branch and merge via a pull request.
+```
+feature/* ─┐
+fix/*     ─┼─▶ PR ─▶ develop (staging) ─▶ release PR ─▶ main (live) ─▶ tag vX.Y.Z
+           ┘
+hotfix/* (from main) ─▶ PR ─▶ main, then merge main back into develop
+```
+
+- **Never commit or push directly to `develop` or `main`.** All work goes on a child branch first.
+- Branch naming: `feature/short-description`, `fix/short-description`, `hotfix/short-description`.
+- Feature and fix PRs target `develop`. Only release PRs (develop → main) and hotfixes target `main`.
+- A release to `main` needs a **GO** from `release-manager` and the user's explicit approval.
+  Tag every release with a semantic version (`v0.1.0`) and plain-language release notes.
+- Commit messages: present tense, imperative — "Add login route" not "Added login route".
 - The PR description must reference the GitHub issue number it closes.
+- Never force-push to `develop` or `main`.

@@ -49,7 +49,10 @@ Orvexa_RAG/
 │   │   └── .env.example    # Browser-safe env vars (VITE_*)
 │   └── api/                # Node.js + Express backend
 │       └── .env.example    # Server-only env vars (secrets)
-├── .claude/                # Claude Code permissions + security reviewer agent
+├── .claude/                # Claude Code permissions + review agents
+├── docs/
+│   ├── journey.md          # Where the project is in its lifecycle
+│   └── decisions.md        # What we decided and why
 ├── .github/workflows/      # CI (secret scanning)
 ├── .githooks/              # Local pre-commit secret scan
 ├── .gitignore
@@ -112,9 +115,13 @@ There are two templates, kept apart on purpose:
 
 | What | Where | Command |
 |---|---|---|
-| Web app | Vercel | Auto-deploys on merge to `main` (protected; PRs only) |
-| API | Railway | Auto-deploys on merge to `main` (protected; PRs only) |
-| Database | Supabase cloud | Managed — no deploy step |
+| Web app — staging | Vercel | Auto-deploys on merge to `develop` |
+| Web app — live | Vercel | Auto-deploys on release to `main` |
+| API — staging | Railway | Auto-deploys on merge to `develop` |
+| API — live | Railway | Auto-deploys on release to `main` |
+| Database | Supabase cloud | Migrations applied as part of a release |
+
+Branch flow: `feature/*` → PR → `develop` (staging) → release PR → `main` (live). See `CLAUDE.md`.
 
 ---
 
