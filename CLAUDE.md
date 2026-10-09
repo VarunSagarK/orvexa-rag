@@ -19,8 +19,9 @@ kid-friendly language, and avoid jargon unless it's explained.
 ### Every section starts and ends with the journey map
 - **Before** a section: show the relevant branch of the tree in `docs/journey.md` with
   "📍 You are here" and one sentence on what this stage is and why it matters.
-- **After** a section: update `docs/journey.md` (statuses + section log) and show what changed
-  (⬜ → 🔵 → ✅) and what comes next.
+- **After** a section: update `docs/journey.md` (statuses, section log, and agent scorecard) and
+  show what changed (⬜ → 🔵 → ✅), which agents ran and what each found, and what comes next.
+  Never count an agent as run unless it actually ran in that section.
 
 ### Plan → build → test → review
 1. **Plan**: anything beyond a small fix needs the goal, the plan in plain English, the files
