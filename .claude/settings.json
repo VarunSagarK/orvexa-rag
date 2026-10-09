@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(cat *.env*)",
+      "Bash(vercel --prod*)",
+      "Bash(vercel env*)",
+      "Bash(railway up*)",
+      "Bash(railway variables*)",
+      "Bash(supabase db push*)",
+      "Bash(supabase db reset*)",
+      "Bash(supabase secrets*)",
+      "Bash(git push --force*)"
+    ]
+  }
+}
