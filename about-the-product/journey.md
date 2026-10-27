@@ -33,7 +33,7 @@ ORVEXA
 ├── 4. PROJECT SETUP — "Get the workshop ready"                                    🔵
 │     ├── Git repo + .gitignore                                                      ✅
 │     ├── Branch flow: feature-* → pre-main → main                                   ✅
-│     ├── Env templates (secret vs public)                                           🔵
+│     ├── Env templates (secret vs public)                                           ✅
 │     ├── Rules for Claude (CLAUDE.md) + memory                                      ✅
 │     ├── AI agent team (.claude/agents/)                                            ✅
 │     ├── Zero-budget tech stack (global skill) + switch                             🔵
@@ -112,10 +112,10 @@ What each agent has done so far, and how useful it has been. Updated after every
 |---|---|---|---|---|---|---|
 | qa-tester | 0 | – | – | – | – | – |
 | frontend-designer | 0 | – | – | – | – | – |
-| code-reviewer | 2 | 0 / 2 | 6 | 5 (env template waits on Varun) | 0 | – |
-| rag-reviewer | 1 | 0 / 1 | 1 | 0 (env template waits on Varun) | 0 | – |
-| security-reviewer | 1 | 0 / 1 | 2 | 1 (env template waits on Varun) | 0 | – |
-| engineering-manager | 1 | 0 / 1 | 7 | 7 | 0 | – |
+| code-reviewer | 2 | 0 / 2 | 6 | 6 | 0 | – |
+| rag-reviewer | 1 | 0 / 1 | 1 | 1 | 0 | – |
+| security-reviewer | 1 | 0 / 1 | 2 | 2 | 0 | – |
+| engineering-manager | 2 | 0 / 2 | 11 | 10 (vision sign-off is Varun's) | 0 | – |
 | ceo-reviewer | 1 | 0 / 1 | 5 | 4 (cost math kept by owner's decision) | 0 | – |
 | release-manager | 0 | – | – | – | – | – |
 
