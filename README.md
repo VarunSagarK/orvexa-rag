@@ -8,10 +8,9 @@ An AI-powered coordination layer that helps residents of high-rise buildings ins
 
 ## 1. 🌟 Product vision
 
-**An AI-native building operating system, powered by RAG, that gives residents accurate, up-to-date, building-specific bylaws and operational rules on demand.**
+**An AI-native residential building operating system, powered by RAG, that gives residents and management accurate, up-to-date, building-specific bylaws and operational rules on demand.**
 
-- Start with answers: residents retrieve rules from a continuously evolving knowledge base instead of waiting for management.
-- Later phases: an agentic RAG layer that helps residents, building staff and property managers complete actions and resolve operational requests end-to-end, without a middleman and delays.
+- Later phases: an agentic RAG layer that helps residents, building staff and property managers complete actions and resolve requests end-to-end.
 
 ## 2. 🧩 The problem
 
