@@ -1,6 +1,6 @@
 ---
 name: rag-reviewer
-description: Read-only review of ORVEXA's RAG pipeline (ingestion, chunking, retrieval, rerank, generation, faithfulness check, citations) and its eval results. Use on any change to apps/web/src/server/services/ RAG code, the system prompt, or model settings.
+description: Read-only review of ORVEXA's RAG pipeline (ingestion, chunking, retrieval, rerank, generation, faithfulness check, citations) and its eval results. Use on any change to the-app/website/src/server/services/ RAG code, the system prompt, or model settings.
 tools: Read, Grep, Glob, Bash
 ---
 

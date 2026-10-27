@@ -36,7 +36,8 @@ ORVEXA
 │     ├── Env templates (secret vs public)                                           ✅
 │     ├── Rules for Claude (CLAUDE.md) + memory                                      ✅
 │     ├── AI agent team (.claude/agents/)                                            ✅
-│     ├── Zero-budget tech stack (global skill) + switch                             🔵
+│     ├── Zero-budget tech stack (global skill) + switch                             ✅
+│     ├── Repo layout: the-app/, project-log/, about-the-product/                     ✅
 │     ├── CI: automatic secret scanning                                              ✅
 │     ├── Branch protection on GitHub                                                ⬜  (you)
 │     └── Accounts: Supabase, Google AI Studio (Gemini), Vercel                      ⬜  (you)
@@ -138,3 +139,4 @@ What each agent has done so far, and how useful it has been. Updated after every
 | 2026-10-08 | Fixed security review (issue #1) | 3 Design (security), 4 Setup |
 | 2026-10-09 | Branch flow, agent team, this map | 4 Setup |
 | 2026-10-26 | Zero-budget stack skill; PRD rewrite + README; stack switch; branches → pre-main/main | 2 Planning, 3 Design, 4 Setup |
+| 2026-10-27 | Repo layout cleanup to the approved folders; README headings unnumbered | 4 Setup |

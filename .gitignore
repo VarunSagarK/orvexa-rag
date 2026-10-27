@@ -46,7 +46,7 @@ logs/
 *.log
 
 # ── Uploaded documents (never commit real bylaw PDFs) ─────────
-apps/web/uploads/
+the-app/website/uploads/
 
 # ── Test coverage ─────────────────────────────────────────────
 coverage/

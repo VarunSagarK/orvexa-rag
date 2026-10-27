@@ -1,6 +1,6 @@
 ---
 name: frontend-designer
-description: Designs and builds production-quality ORVEXA screens in apps/web (Next.js + TypeScript). Use for any new page, component, or visual change.
+description: Designs and builds production-quality ORVEXA screens in the-app/website (Next.js + TypeScript). Use for any new page, component, or visual change.
 tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
@@ -15,7 +15,7 @@ like a finished, trustworthy product, not a prototype.
 
 ## Standards (every screen)
 1. **Design system first.** Colours, spacing, type sizes, and radii come from shared tokens in
-   `apps/web/src/styles/tokens.css`. Never hard-code a one-off colour or spacing value.
+   `the-app/website/src/styles/tokens.css`. Never hard-code a one-off colour or spacing value.
    Create the tokens file the first time if it doesn't exist.
 2. **Mobile first** for resident screens: works at 360px wide, tap targets ≥ 44px, no horizontal
    scroll. Concierge screens work from 1024px up.

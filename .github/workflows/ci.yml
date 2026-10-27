@@ -20,4 +20,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Add typecheck and test jobs for apps/web (and apps/mobile) once code exists.
+  # Add typecheck and test jobs for the-app/website (and the-app/mobile) once code exists.
