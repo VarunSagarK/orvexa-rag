@@ -111,7 +111,7 @@ What each agent has done so far, and how useful it has been. Updated after every
 
 | Agent | Runs | Verdicts (pass / changes) | Must-fix found | Fixed | False alarms | Escaped |
 |---|---|---|---|---|---|---|
-| qa-tester | 1 | 1 / 0 | 0 | – | 0 | – |
+| qa-tester | 2 | 1 / 1 | 1 | 1 | 0 | – |
 | frontend-designer | 0 | – | – | – | – | – |
 | code-reviewer | 2 | 0 / 2 | 6 | 6 | 0 | – |
 | rag-reviewer | 1 | 0 / 1 | 1 | 1 | 0 | – |
@@ -139,4 +139,4 @@ What each agent has done so far, and how useful it has been. Updated after every
 | 2026-10-08 | Fixed security review (issue #1) | 3 Design (security), 4 Setup |
 | 2026-10-09 | Branch flow, agent team, this map | 4 Setup |
 | 2026-10-26 | Zero-budget stack skill; PRD rewrite + README; stack switch; branches → pre-main/main | 2 Planning, 3 Design, 4 Setup |
-| 2026-10-27 | Repo layout cleanup to the approved folders; README headings unnumbered | 4 Setup |
+| 2026-10-26 | Repo layout cleanup to the approved folders; README headings unnumbered | 4 Setup |
