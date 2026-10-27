@@ -127,13 +127,13 @@ Next.js (web app and API, on Vercel's free plan) · React Native with Expo (mobi
 
 ### 💰 Pricing
 
-ORVEXA is built on a $0 budget. Rates below were checked on each provider's official pricing page on 2026-10-26.
+ORVEXA is built on a $0 budget. Rates below were checked on each provider's official pricing page: Gemini on 2026-10-26, Vercel and Supabase on 2026-10-27.
 
 - **Answers and re-ranking (Gemini 2.5 Flash-Lite):** free tier at $0. Paid tier: $0.10 per 1M input tokens and $0.40 per 1M output tokens.
 - **Faithfulness check (Gemini 2.5 Flash):** free tier at $0. Paid tier: $0.30 per 1M input tokens and $2.50 per 1M output tokens.
 - **Embeddings (`gemini-embedding-2`):** free tier at $0. Paid tier: $0.20 per 1M input tokens.
 - **Web app and API hosting (Vercel Hobby):** free plan, for non-commercial use.
-- **Database, sign-in and file storage (Supabase):** free plan.
+- **Database, sign-in and file storage (Supabase):** free plan at $0, with a 500 MB database, 1 GB file storage and 50,000 monthly active users. Free projects pause after 1 week of inactivity.
 
 The free AI tier is used only with sample documents and test accounts, because Google may use free-tier content to improve its products. Before any real resident uses ORVEXA, it moves to a paid tier or another option. The PRD estimates the paid answer call at about $0.000576 per resident per month (8 questions); the real cost will be measured from logged token counts.
 
