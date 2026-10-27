@@ -5,7 +5,7 @@ re-argue them. Newest first. Add an entry whenever a choice would surprise a new
 
 | Date | Decision | Why |
 |---|---|---|
-| 2026-10-26 | Repo follows the global repo-organizer layout: code + `CLAUDE.md` in `the-app/` (web in `the-app/website/`, mobile later in `the-app/mobile/`), journey in `project-log/`, hooks in `.github/hooks/`. README headings have no numbers. | Everything sits in a plain-named folder; only files tools require stay at the top. Varun chose `the-app/CLAUDE.md` knowing Claude Code auto-loads it only when working in `the-app/`. |
+| 2026-10-26 | Repo follows the global repo-organizer layout: code in `the-app/` (web in `the-app/website/`, mobile later in `the-app/mobile/`), journey in `project-log/`, hooks in `.github/hooks/`. README headings have no numbers. | Everything sits in a plain-named folder; only files tools require stay at the top. `CLAUDE.md` lives in `.claude/` so Claude Code loads it in every session (moved from `the-app/` the same day). |
 | 2026-10-26 | Faithfulness check uses `gemini-2.5-flash`, a different and larger model than the one that writes answers (`gemini-2.5-flash-lite`). | A model checking its own work tends to miss its own mistakes (rag-reviewer). Both are on the free tier. |
 | 2026-10-26 | Stack: Next.js (web + API) on Vercel's free plan; Expo mobile after GA; Supabase unchanged. | Follows the global zero-budget `tech-stack` skill; no app code existed, so switching was cheap. Railway has no lasting free plan. |
 | 2026-10-26 | AI: Google Gemini free tier — `gemini-embedding-2` at 1536 dims, `gemini-2.5-flash-lite` for rerank/answer/faithfulness (env vars). | Zero budget. 1536 dims keeps `chunks.embedding vector(1536)` unchanged, so no schema change. |

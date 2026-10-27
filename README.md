@@ -117,13 +117,27 @@ Before the internal alpha or any real person or document, ORVEXA moves off the A
 - `about-the-product/`: the product vision, PRD (HTML and PDF), decision log and architecture notes
 - `designs-and-screens/user-flows/`: user-flow and architecture diagrams (SVG)
 - `project-log/`: the project journey map and agent scorecard
-- `the-app/`: the application and its rules for Claude (`CLAUDE.md`); the system prompt lives here, app code not written yet
-- `.claude/`: Claude Code settings and review agents
+- `the-app/`: the application; the system prompt lives here, app code not written yet
+- `.claude/`: rules for Claude (`CLAUDE.md`), settings and review agents
 - `.github/`: secret scanning in CI, and the pre-commit hook in `hooks/`
 
 ### 🛠️ Built with
 
-Next.js (web app and API, on Vercel's free plan) · React Native with Expo (mobile, after GA) · Supabase (Auth, Postgres + pgvector, Storage) · Google Gemini free tier (embeddings and answers) · TypeScript
+Next.js (web app and API, on Vercel's free plan) · React Native with Expo (mobile, after GA) · Supabase (Auth, Postgres + pgvector, Storage) · Google Gemini free tier (embeddings, answers and the faithfulness check) · TypeScript
+
+### 💰 Pricing
+
+ORVEXA is built on a $0 budget. Rates below were checked on each provider's official pricing page on 2026-10-26.
+
+- **Answers and re-ranking (Gemini 2.5 Flash-Lite):** free tier at $0. Paid tier: $0.10 per 1M input tokens and $0.40 per 1M output tokens.
+- **Faithfulness check (Gemini 2.5 Flash):** free tier at $0. Paid tier: $0.30 per 1M input tokens and $2.50 per 1M output tokens.
+- **Embeddings (`gemini-embedding-2`):** free tier at $0. Paid tier: $0.20 per 1M input tokens.
+- **Web app and API hosting (Vercel Hobby):** free plan, for non-commercial use.
+- **Database, sign-in and file storage (Supabase):** free plan.
+
+The free AI tier is used only with sample documents and test accounts, because Google may use free-tier content to improve its products. Before any real resident uses ORVEXA, it moves to a paid tier or another option. The PRD estimates the paid answer call at about $0.000576 per resident per month (8 questions); the real cost will be measured from logged token counts.
+
+Pricing and free-tier terms can change. Check the official pages before relying on these numbers: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), [Vercel pricing](https://vercel.com/pricing), [Supabase pricing](https://supabase.com/pricing).
 
 ### 🚀 Run it locally
 
@@ -134,6 +148,6 @@ brew install gitleaks
 git config core.hooksPath .github/hooks
 ```
 
-### 👤 Author
+### 📄 License
 
-Varun Sagar Kuppili · MIT License, see [LICENSE](LICENSE)
+[MIT](LICENSE)

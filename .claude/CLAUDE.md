@@ -53,7 +53,7 @@ kid-friendly language, and avoid jargon unless it's explained.
    you checked.
 
 ### Memory: where things are remembered
-- **`the-app/CLAUDE.md`** (this file): rules for every session and every collaborator.
+- **`.claude/CLAUDE.md`** (this file): rules for every session and every collaborator.
 - **`about-the-product/decisions.md`**: what we decided and why, so nothing is re-explained or re-argued.
 - **`project-log/journey.md`**: where the project is in its lifecycle.
 - **`about-the-product/product-vision.md`**: the vision, in Varun's own words.
@@ -90,7 +90,6 @@ Orvexa_RAG/
 ├── designs-and-screens/        # User-flow diagrams (SVG), later app screenshots
 ├── project-log/                # journey.md (lifecycle map + agent scorecard)
 ├── the-app/
-│   ├── CLAUDE.md               # This file
 │   ├── website/                # Next.js web app + API
 │   │   ├── .env.example        # Server-only vars + NEXT_PUBLIC_* browser-safe vars
 │   │   └── src/
@@ -102,7 +101,7 @@ Orvexa_RAG/
 │   │           └── db/         # Supabase clients (per-user + service)
 │   ├── mobile/                 # Expo app (after GA); EXPO_PUBLIC_* vars only
 │   └── supabase/migrations/    # Source of truth for the schema (once created)
-├── .claude/                    # Claude Code settings + agents
+├── .claude/                    # CLAUDE.md (this file), settings, agents
 ├── .github/                    # CI workflows + hooks/ (local pre-commit secret scan)
 ├── .gitignore
 ├── LICENSE

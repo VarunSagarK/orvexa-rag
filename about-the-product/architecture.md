@@ -1,6 +1,6 @@
 # ORVEXA — Architecture notes and free-plan limits
 
-The stack and rules live in `the-app/CLAUDE.md`; the product picture is in `prd.html` (Section 3).
+The stack and rules live in `.claude/CLAUDE.md`; the product picture is in `prd.html` (Section 3).
 This file holds the **facts checked on providers' own pages**, with the date, because free-plan
 limits change. Never quote a limit from memory; check it and add a row.
 
