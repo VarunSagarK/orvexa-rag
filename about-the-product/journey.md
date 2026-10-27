@@ -112,10 +112,10 @@ What each agent has done so far, and how useful it has been. Updated after every
 |---|---|---|---|---|---|---|
 | qa-tester | 0 | – | – | – | – | – |
 | frontend-designer | 0 | – | – | – | – | – |
-| code-reviewer | 1 | 0 / 1 | 2 | 0 (fixed by merging #3 first) | 0 | – |
-| rag-reviewer | 0 | – | – | – | – | – |
-| security-reviewer | 0 | – | – | – | – | – |
-| engineering-manager | 1 | 0 / 1 | 7 | 6 (1 runs on the PR) | 0 | – |
+| code-reviewer | 2 | 0 / 2 | 6 | 5 (env template waits on Varun) | 0 | – |
+| rag-reviewer | 1 | 0 / 1 | 1 | 0 (env template waits on Varun) | 0 | – |
+| security-reviewer | 1 | 0 / 1 | 2 | 1 (env template waits on Varun) | 0 | – |
+| engineering-manager | 1 | 0 / 1 | 7 | 7 | 0 | – |
 | ceo-reviewer | 1 | 0 / 1 | 5 | 4 (cost math kept by owner's decision) | 0 | – |
 | release-manager | 0 | – | – | – | – | – |
 

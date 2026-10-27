@@ -158,8 +158,10 @@ The query flow must follow this exact order:
 5. Run a faithfulness check — does every claim in the answer exist in the retrieved chunks?
 6. If faithfulness passes, return answer + citation. If it fails, hold the answer and create an escalation.
 
-**If any model call fails or the AI quota runs out** at any step, return "can't answer right
-now, please contact the concierge" and create an escalation. Never return an answer that
+**If any model call fails or the AI quota runs out** at any step, return the single fallback
+message (kept in one constant, not retyped) telling the resident to contact the concierge, and
+create an escalation. During an outage, group these into one escalation per outage so the
+concierge isn't flooded. Never return an answer that
 skipped the faithfulness check. `RAG_DAILY_QUERY_LIMIT` × residents must fit inside the
 free-tier daily quota recorded in `about-the-product/architecture.md`.
 
@@ -167,7 +169,11 @@ Prompt-injection controls (a bylaw PDF can contain "ignore previous instructions
 - Wrap each chunk in clear delimiters and label it as reference text, not instructions.
 - The building_id filter lives in SQL, never in the prompt.
 - Check citations in code against the IDs of the chunks actually retrieved, not the citation text the model writes.
-- The eval set must include one "poisoned" test document. Re-run the eval set after any model change.
+- The eval set must include one "poisoned" test document, known-unfaithful answers (to measure
+  how often the faithfulness check misses them), and the failed-call / quota-exhausted paths.
+  Re-run the eval set after any model change.
+- Normalise embeddings to length 1 at ingestion and at query time, until Google's docs confirm
+  whether 1536-dim `gemini-embedding-2` output is already normalised.
 
 Log tokens in/out and latency for every model call (the `query_logs` columns exist for this).
 
@@ -187,7 +193,8 @@ the free tier:
 
 ## Security rules — never violate these
 
-1. **building_id and role come from the server, never from the request.**
+1. **building_id and role come from the server, never from the request.** `DEFAULT_BUILDING_NAME`
+   only names the sample building when seeding; it is never a fallback building_id.
    After verifying the token, look both up in the `users` table (or `app_metadata` / a custom
    access token hook). Never read them from `user_metadata` (users can edit it), the request body,
    or query params. Use the server-side user record only.
@@ -211,15 +218,24 @@ the free tier:
    `GEMINI_API_KEY` are read only in `apps/web/src/server/` and route handlers (mark those modules
    `server-only`), never in a client component. Nothing secret ever gets a `NEXT_PUBLIC_*` or
    `EXPO_PUBLIC_*` prefix — those values ship in public bundles. Locally they live in
-   `apps/web/.env.local`; in production, in Vercel's environment settings.
+   `apps/web/.env.local`; in production, in Vercel's environment settings. Check auth inside
+   **every** route handler, never only in `middleware.ts`. Don't use Server Actions for data
+   changes; if one is ever needed, it runs the same token, role and building checks.
+   (The `server-only` npm package needs install approval like any other package.)
 
-6. **File uploads:** check the real file type from its first bytes (magic bytes), not the
-   extension — PDF and .docx only. Parse with a hard timeout and a cap on unzipped size (a .docx
-   is a zip and can be a zip bomb), within the hosting time limit; if parsing can't fit, it moves
-   to a Supabase Edge Function with the same limits. Max size from `UPLOAD_MAX_MB`.
+6. **File uploads:** Vercel functions accept at most 4.5 MB per request and run at most 300 s on
+   the free plan (see `about-the-product/architecture.md`), so files never pass through a route
+   handler. The concierge's browser uploads straight to the private bucket with a short-lived
+   signed upload URL. The server then checks the real file type from its first bytes (magic
+   bytes), not the extension — PDF and .docx only — and the size (`UPLOAD_MAX_MB`), and parses it
+   from Storage with a hard timeout and a cap on unzipped size (a .docx is a zip and can be a zip
+   bomb). Rejected files are deleted. If parsing can't fit the time limit, it moves to a Supabase
+   Edge Function with the same checks.
 
 7. **Rate limiting:** enforce `RAG_DAILY_QUERY_LIMIT` queries per user per day on /api/query, with
-   the counter stored in Postgres (not memory — serverless functions don't keep memory).
+   the counter stored in Postgres (not memory — serverless functions don't keep memory). The
+   check-and-increment is one atomic SQL statement, and RLS stops users from changing or deleting
+   their own counter row.
 
 8. **Never log the content of uploaded documents** — only document_id and building_id.
 

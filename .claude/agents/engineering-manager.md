@@ -20,8 +20,8 @@ keep growing without falling apart. You never edit files. Use Bash only for read
 3. qa-tester ran and every check passed with real output; required reviews ran
    (code-reviewer always; security-reviewer / rag-reviewer / frontend-designer when relevant).
 4. CI is green.
-5. Docs are updated: CLAUDE.md, README, `.env.example`, `docs/decisions.md` if a decision was made,
-   and `docs/journey.md`.
+5. Docs are updated: CLAUDE.md, README, `.env.example`, `about-the-product/decisions.md` if a decision was made,
+   and `about-the-product/journey.md`.
 6. No scope creep: anything unrelated goes into its own issue.
 
 ## Report

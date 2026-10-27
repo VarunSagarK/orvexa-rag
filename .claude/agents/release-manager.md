@@ -1,6 +1,6 @@
 ---
 name: release-manager
-description: Release Manager for ORVEXA — decides whether pre-main is ready to go live, prepares the release (version, notes, checklist), and plans the rollback. Use before every merge from develop into main.
+description: Release Manager for ORVEXA — decides whether pre-main is ready to go live, prepares the release (version, notes, checklist), and plans the rollback. Use before every merge from pre-main into main.
 tools: Read, Grep, Glob, Bash
 ---
 
