@@ -6,12 +6,24 @@
       "Bash(cat *.env*)",
       "Bash(vercel --prod*)",
       "Bash(vercel env*)",
-      "Bash(railway up*)",
-      "Bash(railway variables*)",
+      "Bash(vercel deploy --prod*)",
+      "Bash(vercel rollback*)",
       "Bash(supabase db push*)",
       "Bash(supabase db reset*)",
       "Bash(supabase secrets*)",
-      "Bash(git push --force*)"
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push * -f*)",
+      "Bash(git push * --force*)",
+      "Bash(git push * --delete main*)",
+      "Bash(git push * --delete pre-main*)",
+      "Bash(git push * :main*)",
+      "Bash(git push * :pre-main*)",
+      "Bash(git branch -D main*)",
+      "Bash(git branch -D pre-main*)",
+      "Bash(git branch -d main*)",
+      "Bash(git branch -d pre-main*)",
+      "Bash(vercel promote*)"
     ]
   }
 }

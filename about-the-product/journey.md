@@ -16,15 +16,15 @@ ORVEXA
 │     ├── Problem: residents wait hours for the concierge to answer bylaw questions  ✅
 │     └── Idea: an AI that answers instantly, with the exact bylaw as proof           ✅
 │
-├── 2. PRODUCT PLANNING — "What exactly do we build, for whom?"                    🔵
+├── 2. PRODUCT PLANNING — "What exactly do we build, for whom?"                    ✅
 │     ├── Users & roles (resident, concierge, property manager)                      ✅
 │     ├── Features & endpoints (what the app can do)                                 ✅
-│     ├── Roadmap (Alpha → Beta → GA → Mobile)                                       ✅
-│     ├── Success metrics (e.g. ≥30% fewer concierge questions — to be measured)     ✅
-│     └── PRD (product requirements document) in docs/                               ⬜
+│     ├── Roadmap (Prototype → Alpha → Beta → GA → Mobile)                           ✅
+│     ├── Success metrics (5 metrics in the PRD; targets set after the alpha)        ✅
+│     └── PRD (product requirements document) in about-the-product/                  ✅
 │
 ├── 3. DESIGN — "How will it work and look?"                                       🔵
-│     ├── Architecture (React → Express API → Supabase + OpenAI)                     ✅
+│     ├── Architecture (Next.js web + API → Supabase + Gemini; Expo later)           ✅
 │     ├── Data model (the 6 database tables)                                         ✅
 │     ├── Security design / threat model (issue #1 review)                           ✅
 │     ├── RAG pipeline design (embed → retrieve → rerank → answer → check)          ✅
@@ -32,20 +32,23 @@ ORVEXA
 │
 ├── 4. PROJECT SETUP — "Get the workshop ready"                                    🔵
 │     ├── Git repo + .gitignore                                                      ✅
-│     ├── Branch flow: feature → develop → main                                      🔵
+│     ├── Branch flow: feature-* → pre-main → main                                   ✅
 │     ├── Env templates (secret vs public)                                           ✅
 │     ├── Rules for Claude (CLAUDE.md) + memory                                      ✅
-│     ├── AI agent team (.claude/agents/)                                            🔵
+│     ├── AI agent team (.claude/agents/)                                            ✅
+│     ├── Zero-budget tech stack (global skill) + switch                             🔵
 │     ├── CI: automatic secret scanning                                              ✅
 │     ├── Branch protection on GitHub                                                ⬜  (you)
-│     └── Accounts: Supabase, OpenAI, Vercel, Railway                                ⬜  (you)
+│     └── Accounts: Supabase, Google AI Studio (Gemini), Vercel                      ⬜  (you)
 │
 ├── 5. BUILD — "Write the code"                                                 ⬜ 🔁
 │     ├── Database (migrations, RLS policies)                                        ⬜
 │     ├── Backend API (auth middleware, routes, services)                            ⬜
+│     ├── Spike: can PDF parsing fit Vercel's free time limit?                       ⬜
 │     ├── Ingestion (upload → parse → chunk → embed)                                 ⬜
 │     ├── RAG pipeline                                                               ⬜
 │     └── Frontend (resident chat, concierge dashboard)                              ⬜
+│           (after each app ships: update the PRD's Rollout + Prototype sections)
 │
 ├── 6. TESTING — "Prove it works, then try to break it"                         ⬜ 🔁
 │     ├── Unit tests — one small piece at a time                                     ⬜
@@ -63,24 +66,24 @@ ORVEXA
 │     └── Leadership: CEO (right thing?) · Eng Manager (done right?)                 ⬜
 │
 ├── 8. RELEASE — "Decide it's ready to go live"                                 ⬜ 🔁
-│     ├── Merge feature → develop → staging site                                     ⬜
+│     ├── Merge feature → pre-main → staging site                                    ⬜
+│     ├── Privacy gate: off the AI free tier before any real person or document      ⬜
 │     ├── Release Manager go/no-go + version number (v0.1.0) + release notes         ⬜
-│     └── Merge develop → main                                                       ⬜
+│     └── Merge pre-main → main                                                      ⬜
 │
 ├── 9. DEPLOYMENT — "Put it on the internet"                                    ⬜ 🔁
-│     ├── Frontend on Vercel (staging from develop, live from main)                  ⬜
-│     ├── API on Railway (staging from develop, live from main)                      ⬜
+│     ├── Web app + API on Vercel (staging from pre-main, live from main)            ⬜
 │     └── Database on Supabase cloud (migrations applied)                            ⬜
 │
 ├── 10. OPERATE & MONITOR — "Keep it healthy"                                   ⬜ 🔁
 │     ├── Logs, errors, uptime alerts                                                ⬜
-│     ├── AI cost tracking + spend cap                                               ⬜
+│     ├── AI quota + cost tracking, spend cap                                        ⬜
 │     ├── Incident response + rollback                                               ⬜
 │     └── Key rotation, log retention, access reviews                                ⬜
 │
 └── 11. FEEDBACK & SCALE — "Learn and grow"                                     ⬜ 🔁
       ├── Thumbs up/down, escalations, top questions → improvements                  ⬜
-      ├── Alpha (1 building) → Beta (3–5) → GA (all)                                 ⬜
+      ├── Internal alpha → Closed beta (15–20 residents) → GA                        ⬜
       └── Mobile app (Expo)                                                          ⬜
 ```
 
@@ -92,7 +95,7 @@ watch → learn → repeat. That loop is how a project grows from one building t
 ## The pipeline (how one piece of work travels)
 
 ```
- idea/issue ─▶ plan ─▶ feature/xyz ─▶ tests ─▶ reviews ─▶ PR ─▶ develop ─▶ staging site
+ idea/issue ─▶ plan ─▶ feature-xyz ─▶ tests ─▶ reviews ─▶ PR ─▶ pre-main ─▶ staging site
                  │                                                    │
             CEO + Eng Mgr                                     human tries it
                                                                        │
@@ -107,13 +110,13 @@ What each agent has done so far, and how useful it has been. Updated after every
 
 | Agent | Runs | Verdicts (pass / changes) | Must-fix found | Fixed | False alarms | Escaped |
 |---|---|---|---|---|---|---|
-| qa-tester | 0 | – | – | – | – | – |
+| qa-tester | 1 | 1 / 0 | 0 | – | 0 | – |
 | frontend-designer | 0 | – | – | – | – | – |
-| code-reviewer | 0 | – | – | – | – | – |
-| rag-reviewer | 0 | – | – | – | – | – |
-| security-reviewer | 0 | – | – | – | – | – |
-| engineering-manager | 0 | – | – | – | – | – |
-| ceo-reviewer | 0 | – | – | – | – | – |
+| code-reviewer | 2 | 0 / 2 | 6 | 6 | 0 | – |
+| rag-reviewer | 1 | 0 / 1 | 1 | 1 | 0 | – |
+| security-reviewer | 1 | 0 / 1 | 2 | 2 | 0 | – |
+| engineering-manager | 2 | 0 / 2 | 11 | 10 (vision sign-off is Varun's) | 0 | – |
+| ceo-reviewer | 1 | 0 / 1 | 5 | 4 (cost math kept by owner's decision) | 0 | – |
 | release-manager | 0 | – | – | – | – | – |
 
 **How to read it**
@@ -134,3 +137,4 @@ What each agent has done so far, and how useful it has been. Updated after every
 | 2026-10-08 | Added README, CLAUDE.md, env template, .gitignore | 2 Planning, 4 Setup |
 | 2026-10-08 | Fixed security review (issue #1) | 3 Design (security), 4 Setup |
 | 2026-10-09 | Branch flow, agent team, this map | 4 Setup |
+| 2026-10-26 | Zero-budget stack skill; PRD rewrite + README; stack switch; branches → pre-main/main | 2 Planning, 3 Design, 4 Setup |

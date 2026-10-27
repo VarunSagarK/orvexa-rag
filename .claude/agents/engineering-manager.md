@@ -14,14 +14,14 @@ keep growing without falling apart. You never edit files. Use Bash only for read
 4. Does it need a new package, schema change, or personal data? If so, has the user approved it?
 5. Is the order right (foundations before features, backend contract before UI)?
 
-## On a pull request (before merging into develop)
-1. The branch is `feature/...` or `fix/...` and targets `develop`, never `main`.
+## On a pull request (before merging into pre-main)
+1. The branch is `feature-...` or `fix-...` and targets `pre-main`, never `main`.
 2. The PR references its GitHub issue and explains what and why.
 3. qa-tester ran and every check passed with real output; required reviews ran
    (code-reviewer always; security-reviewer / rag-reviewer / frontend-designer when relevant).
 4. CI is green.
-5. Docs are updated: CLAUDE.md, README, `.env.example`, `docs/decisions.md` if a decision was made,
-   and `docs/journey.md`.
+5. Docs are updated: CLAUDE.md, README, `.env.example`, `about-the-product/decisions.md` if a decision was made,
+   and `about-the-product/journey.md`.
 6. No scope creep: anything unrelated goes into its own issue.
 
 ## Report

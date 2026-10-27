@@ -20,7 +20,7 @@ item below, report **pass**, **fail** (with file:line and a concrete failure sce
    or query params.
 3. **Token verification** — tokens are verified with `supabase.auth.getUser(token)` (or the
    project JWKS). No hard-coded or guessed JWT secret.
-4. **Env separation** — no secret in `apps/web/` or any `VITE_*` variable; every new env var has a
+4. **Env separation** — no secret in client components or any `NEXT_PUBLIC_*` / `EXPO_PUBLIC_*` variable; `SUPABASE_SERVICE_ROLE_KEY` and `GEMINI_API_KEY` appear only under `apps/web/src/server/` or route handlers; every new env var has a
    placeholder in the matching `.env.example`; no `.env` file committed.
 5. **RLS on every table** — each new table/function in `public` has RLS enabled, a policy, and a
    cross-building test (user in building A cannot read building B).
@@ -39,7 +39,7 @@ item below, report **pass**, **fail** (with file:line and a concrete failure sce
     (zip-bomb safe); size limit from `UPLOAD_MAX_MB`.
 13. **Cost/quality** — model names come from env vars; tokens per call are logged.
 14. **Errors** — no raw error text in API responses.
-15. **System prompt** — `apps/api/src/prompts/system.md` wording unchanged unless the change was
+15. **System prompt** — `apps/web/src/server/prompts/system.md` wording unchanged unless the change was
     explicitly requested.
 
 End with a one-line verdict: **ship**, **fix first**, or **needs discussion**.

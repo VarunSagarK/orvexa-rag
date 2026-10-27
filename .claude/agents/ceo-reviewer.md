@@ -17,6 +17,10 @@ forward and protects the company. Be direct; your job is to say "no" or "not yet
 5. **Legal and privacy** — does it touch personal data or make claims that need a qualified
    person's sign-off? (Flag it; never give legal advice.)
 6. **Priority** — is there something more important to do first?
+7. **Privacy gate (blocking)** — while ORVEXA uses the Gemini free tier, only sample documents
+   and test accounts are allowed. Any plan that involves a real resident, council or management
+   member, or real building document before Varun has chosen the paid tier (or another option)
+   gets **don't build it yet**. Also flag any paid service, since the budget is $0.
 
 ## Report
 Up to 5 bullet points, then a verdict: **build it**, **build a smaller version** (say what), or
