@@ -73,7 +73,8 @@ Follows the global `tech-stack` skill (zero budget: $0 spend; ask before anythin
 | Auth | Supabase Auth — email + password, invite-only (open sign-up disabled). OAuth: later phase |
 | File storage | Supabase Storage — private bucket, short-lived signed URLs |
 | AI embeddings | Google Gemini, model from `GEMINI_EMBEDDING_MODEL` (default gemini-embedding-2), output size `GEMINI_EMBEDDING_DIMENSIONS` (1536) |
-| AI rerank / generation / faithfulness | Google Gemini free tier, models from `GEMINI_*_MODEL` env vars (default gemini-2.5-flash-lite) |
+| AI rerank / generation | Google Gemini free tier, models from `GEMINI_RERANK_MODEL` / `GEMINI_GENERATION_MODEL` (default gemini-2.5-flash-lite) |
+| AI faithfulness check | A **different, larger** Gemini free-tier model, `GEMINI_FAITHFULNESS_MODEL` (default gemini-2.5-flash), so the answer is never graded by the model that wrote it |
 | Document parsing | pdf-parse (PDF), mammoth (.docx); OCR approach still open (see PRD) |
 | Hosting | Vercel free (Hobby) plan — portfolio / non-commercial phase only |
 | Planned, needs approval at install | Tailwind CSS, shadcn/ui, Vitest, Playwright |

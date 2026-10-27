@@ -5,6 +5,7 @@ re-argue them. Newest first. Add an entry whenever a choice would surprise a new
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-10-26 | Faithfulness check uses `gemini-2.5-flash`, a different and larger model than the one that writes answers (`gemini-2.5-flash-lite`). | A model checking its own work tends to miss its own mistakes (rag-reviewer). Both are on the free tier. |
 | 2026-10-26 | Stack: Next.js (web + API) on Vercel's free plan; Expo mobile after GA; Supabase unchanged. | Follows the global zero-budget `tech-stack` skill; no app code existed, so switching was cheap. Railway has no lasting free plan. |
 | 2026-10-26 | AI: Google Gemini free tier — `gemini-embedding-2` at 1536 dims, `gemini-2.5-flash-lite` for rerank/answer/faithfulness (env vars). | Zero budget. 1536 dims keeps `chunks.embedding vector(1536)` unchanged, so no schema change. |
 | 2026-10-26 | Privacy gate (blocking): free tier only with sample documents and test accounts; move off it before the internal alpha or any real person or document. | Google's free tier may use content to improve its products; resident questions are personal data. |

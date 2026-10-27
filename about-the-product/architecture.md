@@ -9,6 +9,7 @@ limits change. Never quote a limit from memory; check it and add a row.
 | Date | Provider | Fact | Source |
 |---|---|---|---|
 | 2026-10-26 | Google Gemini | Gemini 2.5 Flash-Lite: free tier input and output "Free of charge"; paid $0.10 in / $0.40 out per 1M tokens | ai.google.dev/gemini-api/docs/pricing |
+| 2026-10-26 | Google Gemini | Gemini 2.5 Flash: free tier input and output "Free of charge"; paid $0.30 in / $2.50 out per 1M tokens | ai.google.dev/gemini-api/docs/pricing |
 | 2026-10-26 | Google Gemini | `gemini-embedding-2`: free tier "Free of charge"; paid $0.20 per 1M input tokens | ai.google.dev/gemini-api/docs/pricing |
 | 2026-10-26 | Google Gemini | Free tier content is "Used to improve our products" (paid: not used) | ai.google.dev/gemini-api/docs/pricing |
 | 2026-10-26 | Google Gemini | `gemini-embedding-2` defaults to 3072 dims, supports 128–3072, recommends 768 / 1536 / 3072 | ai.google.dev/gemini-api/docs/embeddings |
