@@ -244,7 +244,8 @@
     <tr><th>Choice</th><th>Decision</th><th>Reason</th></tr>
     <tr><td>Chunking</td><td>Document-based (structural)</td><td>Keeps each bylaw whole, so residents get complete, unbroken rules with exact, legally valid citations in one retrieval</td></tr>
     <tr><td>Embedding</td><td>Google <code>gemini-embedding-2</code>, output set to 1,536 dimensions</td><td>Free tier available (zero-budget rule); 1,536 is a size Google recommends, so stored vectors stay small. The prototype used OpenAI text-embedding-3-small for the same low-cost reason</td></tr>
-    <tr><td>LLM (re-rank, answer, faithfulness check)</td><td>A Gemini free-tier model, set in configuration (proposed: Gemini 2.5 Flash-Lite)</td><td>Free tier available. The prototype used GPT-4o Mini</td></tr>
+    <tr><td>LLM (re-rank, answer)</td><td>Gemini 2.5 Flash-Lite (free tier), set in configuration</td><td>Free tier available. The prototype used GPT-4o Mini</td></tr>
+    <tr><td>LLM (faithfulness check)</td><td>Gemini 2.5 Flash (free tier), a different and larger model</td><td>A model checking its own answer tends to miss its own mistakes</td></tr>
     <tr><td>Observability</td><td>Lightweight signals at each pipeline step, compiled into a risk score by a risk evaluator</td><td>Every answer can be understood and replayed for debugging without storing every full response</td></tr>
   </table>
 
