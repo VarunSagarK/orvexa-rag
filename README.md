@@ -29,6 +29,8 @@ An AI-powered coordination layer that helps residents of high-rise buildings ins
 
 ## 4. 💡 The solution
 
+Planned flow (not built yet):
+
 1. The concierge uploads bylaws, rules and FAQs as soon as the council meeting ends; the old version is marked inactive.
 2. A resident signs in (invite-only, with the email their building's management has on file) and asks a question in a chat.
 3. ORVEXA searches **only that resident's building's** current documents, re-ranks the best matches and writes an answer from them alone.
