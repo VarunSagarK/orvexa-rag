@@ -135,7 +135,7 @@ ORVEXA is built on a $0 budget. Rates below were checked on each provider's offi
 - **Web app and API hosting (Vercel Hobby):** free plan, for non-commercial use.
 - **Database, sign-in and file storage (Supabase):** free plan at $0, with a 500 MB database, 1 GB file storage and 50,000 monthly active users. Free projects pause after 1 week of inactivity.
 
-The free AI tier is used only with sample documents and test accounts, because Google may use free-tier content to improve its products. Before any real resident uses ORVEXA, it moves to a paid tier or another option. The PRD estimates the paid answer call at about $0.000576 per resident per month (8 questions); the real cost will be measured from logged token counts.
+The free AI tier is used only with sample documents and test accounts, because Google may use free-tier content to improve its products. Before any real resident uses ORVEXA, it moves to a paid tier or another option. The PRD estimates the paid answer call at about $0.000576 per resident per month (8 questions; answer call only, so the full pipeline costs more); the real cost will be measured from logged token counts.
 
 Pricing and free-tier terms can change. Check the official pages before relying on these numbers: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), [Vercel pricing](https://vercel.com/pricing), [Supabase pricing](https://supabase.com/pricing).
 
@@ -147,6 +147,8 @@ There is no application code yet. Once the web app exists, setup steps will be a
 brew install gitleaks
 git config core.hooksPath .github/hooks
 ```
+
+If you enabled the hook before, run the second command again: the hook folder moved from `.githooks/` to `.github/hooks/`.
 
 ### 📄 License
 

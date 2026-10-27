@@ -113,10 +113,10 @@ What each agent has done so far, and how useful it has been. Updated after every
 |---|---|---|---|---|---|---|
 | qa-tester | 2 | 1 / 1 | 1 | 1 | 0 | – |
 | frontend-designer | 0 | – | – | – | – | – |
-| code-reviewer | 2 | 0 / 2 | 6 | 6 | 0 | – |
+| code-reviewer | 3 | 1 / 2 | 6 | 6 | 0 | – |
 | rag-reviewer | 1 | 0 / 1 | 1 | 1 | 0 | – |
 | security-reviewer | 1 | 0 / 1 | 2 | 2 | 0 | – |
-| engineering-manager | 2 | 0 / 2 | 11 | 10 (vision sign-off is Varun's) | 0 | – |
+| engineering-manager | 3 | 0 / 3 | 13 | 12 (vision sign-off is Varun's) | 0 | – |
 | ceo-reviewer | 1 | 0 / 1 | 5 | 4 (cost math kept by owner's decision) | 0 | – |
 | release-manager | 0 | – | – | – | – | – |
 
@@ -140,3 +140,4 @@ What each agent has done so far, and how useful it has been. Updated after every
 | 2026-10-09 | Branch flow, agent team, this map | 4 Setup |
 | 2026-10-26 | Zero-budget stack skill; PRD rewrite + README; stack switch; branches → pre-main/main | 2 Planning, 3 Design, 4 Setup |
 | 2026-10-26 | Repo layout cleanup to the approved folders; README headings unnumbered | 4 Setup |
+| 2026-10-27 | CLAUDE.md back in .claude/; README Pricing (pages checked) and License; hook path fixed; EM + code review on PR #7 | 4 Setup |
