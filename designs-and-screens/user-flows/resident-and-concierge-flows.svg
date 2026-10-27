@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="Charter, Georgia, serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8C7B70"/></marker></defs>
+<rect width="1000" height="560" rx="16" fill="#FFFFFF"/>
+<circle cx="52" cy="43" r="13" fill="#6E2C2A"/><text x="52" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
+<text x="74" y="48" font-size="17" font-weight="700" fill="#1E1A17">Resident asks a question</text>
+<text x="74" y="67" font-size="12.5" fill="#6B645E">Registered with the same email the building's management provided</text>
+<rect x="40" y="82" width="150" height="54" rx="10" fill="#6E2C2A"/><text x="115" y="106" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">Invite-only</text><text x="115" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">sign-in</text>
+<path d="M192,109 L214,109" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="217" y="82" width="150" height="54" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="292" y="106" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Chat home</text><text x="292" y="122" text-anchor="middle" font-size="12" fill="#6B645E">with history panel</text>
+<path d="M369,109 L391,109" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="394" y="82" width="150" height="54" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="469" y="106" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Types a</text><text x="469" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">question</text>
+<path d="M546,109 L568,109" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="571" y="82" width="170" height="54" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="656" y="106" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">AI searches own</text><text x="656" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">building's documents</text>
+<path d="M743,109 L765,109" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="768" y="82" width="192" height="54" rx="10" fill="#6E2C2A"/><text x="864" y="106" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">Answer + full rule,</text><text x="864" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">source and date</text>
+<path d="M864,138 L864,170" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="768" y="173" width="192" height="46" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="864" y="201" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">👍 / 👎 or Report</text>
+<path d="M656,138 L656,196 L520,196" stroke="#8C7B70" stroke-width="1.6" fill="none" stroke-dasharray="6 5" marker-end="url(#a)"/>
+<text x="664" y="166" font-size="11.5" fill="#6B645E">weak evidence or misuse</text>
+<rect x="290" y="173" width="228" height="46" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6" stroke-dasharray="6 5"/><text x="404" y="194" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">Disclaimer, no definitive</text><text x="404" y="210" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">answer, concierge notified</text>
+<path d="M292,138 L292,150 L120,150 L120,248" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="40" y="251" width="160" height="46" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="120" y="272" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">Activity page</text><text x="120" y="288" text-anchor="middle" font-size="11.5" fill="#6B645E">recent requests</text>
+
+<circle cx="52" cy="345" r="13" fill="#6E2C2A"/><text x="52" y="350" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
+<text x="74" y="350" font-size="17" font-weight="700" fill="#1E1A17">Concierge keeps the knowledge base current</text>
+<text x="74" y="369" font-size="12.5" fill="#6B645E">Uploads documents as soon as the council meeting ends; triages escalations</text>
+<rect x="40" y="384" width="150" height="54" rx="10" fill="#6E2C2A"/><text x="115" y="408" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">Invite-only</text><text x="115" y="424" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">sign-in</text>
+<path d="M192,411 L214,411" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="217" y="384" width="150" height="54" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="292" y="408" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Home</text><text x="292" y="424" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">dashboard</text>
+<path d="M369,411 L391,411" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="394" y="384" width="150" height="54" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="469" y="408" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Upload bylaws,</text><text x="469" y="424" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">rules, FAQs</text>
+<path d="M546,411 L568,411" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="571" y="384" width="170" height="54" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="656" y="408" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Read, chunk,</text><text x="656" y="424" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">embed, index</text>
+<path d="M743,411 L765,411" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="768" y="384" width="192" height="54" rx="10" fill="#6E2C2A"/><text x="864" y="408" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">Old version marked</text><text x="864" y="424" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">inactive; new is live</text>
+<path d="M292,440 L292,477" stroke="#8C7B70" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+<rect x="160" y="480" width="264" height="54" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="292" y="503" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">Escalations · Residents (CRUD,</text><text x="292" y="520" text-anchor="middle" font-size="13" font-weight="600" fill="#1E1A17">Excel import/export) · Test chat</text>
+</svg>

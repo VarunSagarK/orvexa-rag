@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="Charter, Georgia, serif">
+<defs><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6E2C2A"/></marker></defs>
+<rect width="1000" height="400" rx="16" fill="#FFFFFF"/>
+<rect x="30" y="40" width="170" height="64" rx="10" fill="#6E2C2A"/><text x="115" y="67" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Resident app</text><text x="115" y="86" text-anchor="middle" font-size="11.5" fill="#FFFFFF">Next.js web · Expo app later</text>
+<path d="M202,72 L238,72" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<rect x="241" y="40" width="170" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="326" y="67" text-anchor="middle" font-size="14" font-weight="600" fill="#1E1A17">Supabase Auth</text><text x="326" y="86" text-anchor="middle" font-size="11.5" fill="#6B645E">invite-only sign-in token</text>
+<path d="M413,72 L449,72" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<rect x="452" y="40" width="200" height="64" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="552" y="67" text-anchor="middle" font-size="14" font-weight="600" fill="#1E1A17">ORVEXA API</text><text x="552" y="86" text-anchor="middle" font-size="11.5" fill="#6B645E">Next.js server · checks role, building</text>
+<path d="M552,106 L552,140" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<rect x="30" y="143" width="160" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="110" y="170" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">1 · Embed question</text><text x="110" y="189" text-anchor="middle" font-size="11.5" fill="#6B645E">Gemini embedding</text>
+<rect x="222" y="143" width="160" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="302" y="170" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">2 · Retrieve</text><text x="302" y="189" text-anchor="middle" font-size="11.5" fill="#6B645E">pgvector, own building only</text>
+<rect x="414" y="143" width="160" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="494" y="170" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">3 · Re-rank</text><text x="494" y="189" text-anchor="middle" font-size="11.5" fill="#6B645E">Gemini LLM</text>
+<rect x="606" y="143" width="160" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="686" y="170" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">4 · Generate</text><text x="686" y="189" text-anchor="middle" font-size="11.5" fill="#6B645E">sources only</text>
+<rect x="798" y="143" width="172" height="64" rx="10" fill="#F8F2E2" stroke="#B8963F" stroke-width="1.6"/><text x="884" y="170" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">5 · Faithfulness</text><text x="884" y="189" text-anchor="middle" font-size="11.5" fill="#6B645E">every claim in sources?</text>
+<path d="M192,175 L219,175" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<path d="M384,175 L411,175" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<path d="M576,175 L603,175" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<path d="M768,175 L795,175" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/>
+<path d="M884,209 L884,250" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)"/><text x="892" y="236" font-size="11.5" fill="#6B645E">pass</text>
+<rect x="770" y="253" width="200" height="60" rx="10" fill="#6E2C2A"/><text x="870" y="279" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">Answer + full rule,</text><text x="870" y="297" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">source, date</text>
+<path d="M800,209 L800,230 L640,230 L640,250" stroke="#6E2C2A" stroke-width="1.6" fill="none" stroke-dasharray="6 5" marker-end="url(#m)"/><text x="660" y="224" font-size="11.5" fill="#6B645E">fail or weak evidence</text>
+<rect x="530" y="253" width="210" height="60" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6" stroke-dasharray="6 5"/><text x="635" y="279" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Hold answer · disclaimer</text><text x="635" y="297" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">escalate to concierge</text>
+<rect x="30" y="253" width="440" height="60" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="250" y="279" text-anchor="middle" font-size="13.5" font-weight="600" fill="#1E1A17">Supabase Postgres + pgvector · private Storage</text><text x="250" y="297" text-anchor="middle" font-size="11.5" fill="#6B645E">documents, chunks, query logs, escalations · row-level security per building</text>
+<path d="M302,209 L302,250" stroke="#6E2C2A" stroke-width="1.6" fill="none" marker-end="url(#m)" marker-start="url(#m)"/>
+<rect x="30" y="340" width="940" height="40" rx="10" fill="#FFFFFF" stroke="#D9D1C5" stroke-width="1.6"/><text x="500" y="365" text-anchor="middle" font-size="12.5" fill="#6B645E">Observability: document versions used, retrieval quality and citations per answer → risk evaluator → low / medium / high risk score</text>
+</svg>
