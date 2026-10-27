@@ -115,10 +115,9 @@ Before the internal alpha or any real person or document, ORVEXA moves off the A
 
 ### 📁 Repo map
 
-- `about-the-product/`: the PRD (HTML and PDF)
+- `about-the-product/`: the PRD (HTML and PDF), decision log, journey map and architecture notes
 - `designs-and-screens/user-flows/`: user-flow and architecture diagrams (SVG)
 - `apps/`: the application (the system prompt lives here; app code not written yet)
-- `docs/`: project journey map and decision log
 - `.claude/`: Claude Code settings and review agents
 - `.github/`, `.githooks/`: secret scanning in CI and before each commit
 
