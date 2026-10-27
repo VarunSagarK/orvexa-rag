@@ -110,7 +110,7 @@ What each agent has done so far, and how useful it has been. Updated after every
 
 | Agent | Runs | Verdicts (pass / changes) | Must-fix found | Fixed | False alarms | Escaped |
 |---|---|---|---|---|---|---|
-| qa-tester | 0 | – | – | – | – | – |
+| qa-tester | 1 | 1 / 0 | 0 | – | 0 | – |
 | frontend-designer | 0 | – | – | – | – | – |
 | code-reviewer | 2 | 0 / 2 | 6 | 6 | 0 | – |
 | rag-reviewer | 1 | 0 / 1 | 1 | 1 | 0 | – |
