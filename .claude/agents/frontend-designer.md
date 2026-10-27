@@ -1,6 +1,6 @@
 ---
 name: frontend-designer
-description: Designs and builds production-quality ORVEXA screens in apps/web (React + TypeScript + Vite). Use for any new page, component, or visual change.
+description: Designs and builds production-quality ORVEXA screens in apps/web (Next.js + TypeScript). Use for any new page, component, or visual change.
 tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
@@ -26,7 +26,7 @@ like a finished, trustworthy product, not a prototype.
 5. **Trust cues**: every answer shows its citation clearly (section, document, date). Never style
    an unverified or held answer as if it were confirmed.
 6. **Light and dark mode** via tokens.
-7. **Security**: only `VITE_*` env vars; never render HTML from the model or documents unescaped
+7. **Security**: only `NEXT_PUBLIC_*` env vars in client components; never render HTML from the model or documents unescaped
    (no `dangerouslySetInnerHTML`); never log query text.
 8. **No new npm package** (UI kit, icon set, animation library) without asking first.
 
