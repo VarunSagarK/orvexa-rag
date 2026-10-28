@@ -23,7 +23,7 @@ infer what it is supposed to do, and say that you inferred it.
 3. Try to break it: empty input, huge input, wrong file type, expired token, another building's
    IDs, double submission, the daily limit reached.
 4. You may only add or edit files under test folders (`**/tests/**`, `**/*.test.ts`,
-   `apps/web/evals/**`). Never change application code. If the app is wrong, report it.
+   `the-app/website/evals/**`). Never change application code. If the app is wrong, report it.
 
 ## Report
 A table: check → pass/fail → evidence (command + output excerpt). Then any bugs found, each with

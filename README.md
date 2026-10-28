@@ -6,19 +6,19 @@ An AI-powered coordination layer that helps residents of high-rise buildings ins
 
 ---
 
-## 1. 🌟 Product vision
+## 🌟 Product vision
 
 **An AI-native residential building operating system, powered by RAG, that gives residents and management accurate, up-to-date, building-specific bylaws and operational rules on demand.**
 
 - Later phases: an agentic RAG layer that helps residents, building staff and property managers complete actions and resolve requests end-to-end.
 
-## 2. 🧩 The problem
+## 🧩 The problem
 
 - **For residents:** bylaws and operational policies change often, so they're hard to track and interpret consistently. Misunderstandings can lead to non-compliance, infractions or fines.
 - **For building management:** teams handling high resident volume (e.g. 2,000+ residents across 50+ floors, especially in new buildings) face operational overload, response delays and backlogs.
 - **The opportunity:** no application is in use today; residents email or message building management for every clarification.
 
-## 3. 👥 Who it's for
+## 👥 Who it's for
 
 | User | What they need |
 |---|---|
@@ -26,7 +26,7 @@ An AI-powered coordination layer that helps residents of high-rise buildings ins
 | **Concierge / Admin** | One place to upload documents, manage residents and handle escalations |
 | **Property manager** | Later phases |
 
-## 4. 💡 The solution
+## 💡 The solution
 
 Planned flow (not built yet):
 
@@ -44,7 +44,7 @@ Planned flow (not built yet):
 
 <p align="center"><img src="designs-and-screens/user-flows/question-to-answer-architecture.svg" alt="How one question becomes a checked, cited answer" width="760"></p>
 
-## 5. 🎯 Goals and success metrics
+## 🎯 Goals and success metrics
 
 | Type | Metric | What it measures |
 |---|---|---|
@@ -56,7 +56,7 @@ Planned flow (not built yet):
 
 Targets are not set yet; they will be set after the internal alpha.
 
-## 6. 🥊 Competitive landscape
+## 🥊 Competitive landscape
 
 | Alternative today | Why it falls short |
 |---|---|
@@ -65,7 +65,7 @@ Targets are not set yet; they will be set after the internal alpha.
 
 **Differentiator:** every answer is grounded in the building's own approved, current documents and shows the exact rule, rather than a general chatbot's guess.
 
-## 7. 📦 MVP scope
+## 📦 MVP scope
 
 | Priority | Capability | Why |
 |---|---|---|
@@ -79,7 +79,7 @@ Targets are not set yet; they will be set after the internal alpha.
 
 **Could have:** admin-tunable chunk size and overlap, caching common questions, summarizing the source section before the answer.
 
-## 8. ⚠️ Risks and how they're handled
+## ⚠️ Risks and how they're handled
 
 | Risk | If it happens | Mitigation |
 |---|---|---|
@@ -92,7 +92,7 @@ Targets are not set yet; they will be set after the internal alpha.
 | Misuse / loophole-seeking | Rules pushed beyond intent | Scope limits, input filters, "not a final authority" labels, escalation |
 | Free AI quota runs out | An answer could skip its check | Any failed model call escalates; no unchecked answers |
 
-## 9. 🗺️ Rollout and milestones
+## 🗺️ Rollout and milestones
 
 | Milestone | Who | Status |
 |---|---|---|
@@ -104,7 +104,7 @@ Targets are not set yet; they will be set after the internal alpha.
 
 Before the internal alpha or any real person or document, ORVEXA moves off the AI free tier and hosting terms are checked for commercial use.
 
-## 10. 📍 Where it stands
+## 📍 Where it stands
 
 - **Real:** the PRD, the system prompt, security rules, review agents, CI secret scanning and environment templates.
 - **Prototype:** the Lovable build that tested logins, dashboards and low-confidence handover.
@@ -114,15 +114,30 @@ Before the internal alpha or any real person or document, ORVEXA moves off the A
 
 ### 📁 Repo map
 
-- `about-the-product/`: the PRD (HTML and PDF), decision log, journey map and architecture notes
+- `about-the-product/`: the product vision, PRD (HTML and PDF), decision log and architecture notes
 - `designs-and-screens/user-flows/`: user-flow and architecture diagrams (SVG)
-- `apps/`: the application (the system prompt lives here; app code not written yet)
-- `.claude/`: Claude Code settings and review agents
-- `.github/`, `.githooks/`: secret scanning in CI and before each commit
+- `project-log/`: the project journey map and agent scorecard
+- `the-app/`: the application; the system prompt lives here, app code not written yet
+- `.claude/`: rules for Claude (`CLAUDE.md`), settings and review agents
+- `.github/`: secret scanning in CI, and the pre-commit hook in `hooks/`
 
 ### 🛠️ Built with
 
-Next.js (web app and API, on Vercel's free plan) · React Native with Expo (mobile, after GA) · Supabase (Auth, Postgres + pgvector, Storage) · Google Gemini free tier (embeddings and answers) · TypeScript
+Next.js (web app and API, on Vercel's free plan) · React Native with Expo (mobile, after GA) · Supabase (Auth, Postgres + pgvector, Storage) · Google Gemini free tier (embeddings, answers and the faithfulness check) · TypeScript
+
+### 💰 Pricing
+
+ORVEXA is built on a $0 budget. Rates below were checked on each provider's official pricing page: Gemini on 2026-10-26, Vercel and Supabase on 2026-10-27.
+
+- **Answers and re-ranking (Gemini 2.5 Flash-Lite):** free tier at $0. Paid tier: $0.10 per 1M input tokens and $0.40 per 1M output tokens.
+- **Faithfulness check (Gemini 2.5 Flash):** free tier at $0. Paid tier: $0.30 per 1M input tokens and $2.50 per 1M output tokens.
+- **Embeddings (`gemini-embedding-2`):** free tier at $0. Paid tier: $0.20 per 1M input tokens.
+- **Web app and API hosting (Vercel Hobby):** free plan, for non-commercial use.
+- **Database, sign-in and file storage (Supabase):** free plan at $0, with a 500 MB database, 1 GB file storage and 50,000 monthly active users. Free projects pause after 1 week of inactivity.
+
+The free AI tier is used only with sample documents and test accounts, because Google may use free-tier content to improve its products. Before any real resident uses ORVEXA, it moves to a paid tier or another option. The PRD estimates the paid answer call at about $0.000576 per resident per month (8 questions; answer call only, so the full pipeline costs more); the real cost will be measured from logged token counts.
+
+Pricing and free-tier terms can change. Check the official pages before relying on these numbers: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), [Vercel pricing](https://vercel.com/pricing), [Supabase pricing](https://supabase.com/pricing).
 
 ### 🚀 Run it locally
 
@@ -130,9 +145,11 @@ There is no application code yet. Once the web app exists, setup steps will be a
 
 ```bash
 brew install gitleaks
-git config core.hooksPath .githooks
+git config core.hooksPath .github/hooks
 ```
 
-### 👤 Author
+If you enabled the hook before, run the second command again: the hook folder moved from `.githooks/` to `.github/hooks/`.
 
-Varun Sagar Kuppili · MIT License, see [LICENSE](LICENSE)
+### 📄 License
+
+[MIT](LICENSE)

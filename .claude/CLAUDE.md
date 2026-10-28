@@ -20,9 +20,9 @@ The user is learning the whole product lifecycle through this project. Explain i
 kid-friendly language, and avoid jargon unless it's explained.
 
 ### Every section starts and ends with the journey map
-- **Before** a section: show the relevant branch of the tree in `about-the-product/journey.md`
+- **Before** a section: show the relevant branch of the tree in `project-log/journey.md`
   with "📍 You are here" and one sentence on what this stage is and why it matters.
-- **After** a section: update `about-the-product/journey.md` (statuses, section log, and agent
+- **After** a section: update `project-log/journey.md` (statuses, section log, and agent
   scorecard) and show what changed (⬜ → 🔵 → ✅), which agents ran and what each found, and what
   comes next. Never count an agent as run unless it actually ran in that section.
 
@@ -53,9 +53,10 @@ kid-friendly language, and avoid jargon unless it's explained.
    you checked.
 
 ### Memory: where things are remembered
-- **CLAUDE.md** (this file): rules for every session and every collaborator.
+- **`.claude/CLAUDE.md`** (this file): rules for every session and every collaborator.
 - **`about-the-product/decisions.md`**: what we decided and why, so nothing is re-explained or re-argued.
-- **`about-the-product/journey.md`**: where the project is in its lifecycle.
+- **`project-log/journey.md`**: where the project is in its lifecycle.
+- **`about-the-product/product-vision.md`**: the vision, in Varun's own words.
 - **`about-the-product/architecture.md`**: free-plan limits, checked on the provider's page, with dates.
 - **Claude's private memory**: the user's personal preferences across sessions.
 
@@ -67,8 +68,8 @@ Follows the global `tech-stack` skill (zero budget: $0 spend; ask before anythin
 
 | Layer | Technology |
 |---|---|
-| Web app + API | Next.js (App Router) + TypeScript — located in apps/web/ (API = route handlers) |
-| Mobile app (after GA) | React Native with Expo + TypeScript — apps/mobile/, calls the same API |
+| Web app + API | Next.js (App Router) + TypeScript — located in the-app/website/ (API = route handlers) |
+| Mobile app (after GA) | React Native with Expo + TypeScript — the-app/mobile/, calls the same API |
 | Database | Supabase (Postgres + pgvector extension) |
 | Auth | Supabase Auth — email + password, invite-only (open sign-up disabled). OAuth: later phase |
 | File storage | Supabase Storage — private bucket, short-lived signed URLs |
@@ -85,10 +86,11 @@ Follows the global `tech-stack` skill (zero budget: $0 spend; ask before anythin
 
 ```
 Orvexa_RAG/
-├── about-the-product/          # PRD, decisions, journey map, architecture notes
+├── about-the-product/          # PRD, product vision, decisions, architecture notes
 ├── designs-and-screens/        # User-flow diagrams (SVG), later app screenshots
-├── apps/
-│   ├── web/                    # Next.js web app + API
+├── project-log/                # journey.md (lifecycle map + agent scorecard)
+├── the-app/
+│   ├── website/                # Next.js web app + API
 │   │   ├── .env.example        # Server-only vars + NEXT_PUBLIC_* browser-safe vars
 │   │   └── src/
 │   │       ├── app/            # Pages and API route handlers (thin)
@@ -97,16 +99,18 @@ Orvexa_RAG/
 │   │           ├── prompts/
 │   │           │   └── system.md   # THE system prompt — loaded at runtime
 │   │           └── db/         # Supabase clients (per-user + service)
-│   └── mobile/                 # Expo app (after GA); EXPO_PUBLIC_* vars only
-├── supabase/migrations/        # Source of truth for the schema (once created)
-├── .claude/                    # Claude Code settings + agents
-├── CLAUDE.md
+│   ├── mobile/                 # Expo app (after GA); EXPO_PUBLIC_* vars only
+│   └── supabase/migrations/    # Source of truth for the schema (once created)
+├── .claude/                    # CLAUDE.md (this file), settings, agents
+├── .github/                    # CI workflows + hooks/ (local pre-commit secret scan)
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
-- **System prompt:** `apps/web/src/server/prompts/system.md`. Never edit its wording without
+- **System prompt:** `the-app/website/src/server/prompts/system.md`. Never edit its wording without
   explicit instruction. It must be bundled with the server build so it can be read at runtime.
-- **Schema:** once `supabase/migrations/` exists, it is the truth and the summary below must match it.
+- **Schema:** once `the-app/supabase/migrations/` exists, it is the truth and the summary below must match it.
 
 ---
 
@@ -128,7 +132,7 @@ escalations       — id, query_log_id, reason, conversation (jsonb), status, re
 
 ---
 
-## API endpoints (Next.js route handlers under apps/web/src/app/api/)
+## API endpoints (Next.js route handlers under the-app/website/src/app/api/)
 
 | Method | Path | Auth required | What it does |
 |---|---|---|---|
@@ -147,7 +151,7 @@ with `supabase.auth.getUser(token)`.
 
 ---
 
-## RAG pipeline (apps/web/src/server/services/rag.ts)
+## RAG pipeline (the-app/website/src/server/services/rag.ts)
 
 The query flow must follow this exact order:
 
@@ -216,10 +220,10 @@ the free tier:
    Derive it inside the function from `auth.uid()` and keep them `SECURITY INVOKER`.
 
 5. **Secrets never reach the browser or the phone.** `SUPABASE_SERVICE_ROLE_KEY` and
-   `GEMINI_API_KEY` are read only in `apps/web/src/server/` and route handlers (mark those modules
+   `GEMINI_API_KEY` are read only in `the-app/website/src/server/` and route handlers (mark those modules
    `server-only`), never in a client component. Nothing secret ever gets a `NEXT_PUBLIC_*` or
    `EXPO_PUBLIC_*` prefix — those values ship in public bundles. Locally they live in
-   `apps/web/.env.local`; in production, in Vercel's environment settings. Check auth inside
+   `the-app/website/.env.local`; in production, in Vercel's environment settings. Check auth inside
    **every** route handler, never only in `middleware.ts`. Don't use Server Actions for data
    changes; if one is ever needed, it runs the same token, role and building checks.
    (The `server-only` npm package needs install approval like any other package.)
@@ -254,7 +258,7 @@ the free tier:
 - Use async/await. Never use callbacks or raw Promises without .catch().
 - Never hardcode API keys, URLs, model names, or secrets. Always use process.env.VARIABLE_NAME.
 - Every environment variable must exist, with a placeholder value, in the matching
-  `apps/web/.env.example` (or `apps/mobile/.env.example` once it exists).
+  `the-app/website/.env.example` (or `the-app/mobile/.env.example` once it exists).
 - Keep route handlers thin — business logic belongs in `src/server/services/`.
 - Add a JSDoc comment to every exported function in services/.
 
@@ -283,14 +287,14 @@ placeholders. Don't treat them as validated. Metric targets are not set yet.
 ## How to run locally (once the app exists)
 
 ```bash
-# Web app + API (from apps/web/)
+# Web app + API (from the-app/website/)
 cp .env.example .env.local    # then fill in real values
 npm install
 npm run dev                   # starts on port 3000
 ```
 
 Secret scanning: install gitleaks (`brew install gitleaks`) and enable the repo hook once with
-`git config core.hooksPath .githooks`.
+`git config core.hooksPath .github/hooks`.
 
 ---
 
